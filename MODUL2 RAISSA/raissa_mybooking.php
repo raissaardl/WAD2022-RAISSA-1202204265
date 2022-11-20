@@ -49,6 +49,8 @@
           </b>
       </th>
       <th scope="col">
+        <?php 
+        $fname = $_POST ['name']
           <b>
               Name
           </b>
