@@ -1,7 +1,7 @@
   <?php
   require '../config/koneksi.php';
 
-  $query = "SELECT * FROM showroomraissa";
+  $query = "SELECT * FROM showroom_raissa_table";
   $hasil = mysqli_query($koneksi, $query);
 
   ?>
