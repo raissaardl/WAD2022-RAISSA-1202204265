@@ -1,17 +1,28 @@
 <?php
-$row = mysqli_fetch_assoc($executeCari);
-$data = mysqli_fetch_array($executeCari);
+    require 'koneksi.php';
 
-if ($executeCari == true) {
-  if ($check == 'checked') {
-    setcookie('email', $email);
-    setcookie('pass', $sandi);
-  }
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-  session_start();
-  $_SESSION['id'] = $data['id'];
-  $_SESSION['nama'] = $data['nama'];
-  header("location: ../pages/Home-Raissa.php");
-} else {
-  header("location: ../pages/Login-Raissa.php?pesan=failed");
-}
+    $mysql = "SELECT * FROM user_raissa WHERE email = '$email'";
+    $result = mysqli_query($koneksi, $mysql);
+    $row = mysqli_fetch_assoc($result);
+
+    if($row){
+        if($password == $row["password"]){
+            if(isset($_POST['rememberMe'])){
+                setcookie("email", $row['email'], time() + 3600, "/");
+            }
+
+            if(!isset($_SESSION))
+                session_start();
+            
+            $_SESSION['email'] = $row["email"];
+
+        header("location: ../index.php");
+        } else {
+            echo "Password Anda Salah";
+        }
+    } else {
+        echo "Email Belum Terdaftar, Silahkan Daftar Terlebih Dahulu";
+    }

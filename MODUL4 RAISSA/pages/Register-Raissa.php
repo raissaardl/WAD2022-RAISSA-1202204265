@@ -1,21 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Register | Raissa_1202204265</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Raissa_1202204265</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <style>
     <?php include '../asset/style/style.css'; ?>
   </style>
 </head>
 
+
 <body>
   <section class="login">
     <div class="row">
       <div class="col-md-6">
-        <img src="../asset/images/login_bmw.png" style="height: 100%; object-fit:fill;" alt="login">
+      <img src="../asset/images/login_bmw.png" alt="login">
       </div>
       <div class="col-md-6">
         <div class="d-flex align-items-center justify-content-center form-login">

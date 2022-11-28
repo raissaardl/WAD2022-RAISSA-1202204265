@@ -1,74 +1,93 @@
-  <?php
-  require './config/koneksi.php';
+<?php 
+    session_start();
+    require './config/koneksi.php';
+?>    
+<!DOCTYPE html>
+<html lang="en">
 
-  $query = "SELECT * FROM showroom_raissa_table";
-  $hasil = mysqli_query($koneksi, $query);
-
-  function onClick($hasil)
-  {
-    if (mysqli_num_rows($hasil) > 0) {
-      header("Location: ./pages/List-Raissa.php");
-    } else {
-      header("Location: ./pages/Add-Raissa.php");
-    }
-  }
-  ?>
-
-  <!doctype html>
-  <html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Raissa_1202204265</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./asset/style/BOOTSTRAP.css">
     <style>
-      <?php include 'asset/style/style.css'; ?>
+        body {
+            font-family: "Trebuchet MS";
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-    <!-- Nav -->
-    <nav style="background:salmon" class="navbar navbar-expand-lg"> 
-      <div class="container">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav gap-3">
-            <a class="nav-link" style="color: white;" href="#home">Home</a>
-            <a class="nav-link" href="<?php if (mysqli_num_rows($hasil) > 0) {
-                                        echo "./pages/List-Raissa.php";
-                                      } else {
-                                        echo "./pages/Add-Raissa.php";
-                                      } ?>">My Car
-            </a>
-            <!-- SHOW LOGO -->
-            <a class="navbar-brand" href="#">
-          
-                                      
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- Nav End -->
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar-dark bg-<?php echo isset($_COOKIE['bg-nav'])? $_COOKIE['bg-nav'] : 'primary';?>">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <?php if(isset($_SESSION['email']) || isset($_COOKIE['email'])):?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="pages/List-Raissa.php">My Car</a>
+                        </li>
+                    <?php endif;?>
+                </ul>
+                <form class="d-flex">
+                    <?php if(isset($_SESSION['email']) || isset($_COOKIE['email'])):?>
+                        <div class="dropdown" style="margin-right: 10px;">
+                            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <?php 
+                                $email = isset($_SESSION['email'])? $_SESSION['email'] : $_COOKIE['email'];
 
-    <!-- Jumbotron -->
-    <section id="home">
-      <div class="container">
-        <div class="d-flex gap-5 cont justify-content-center align-items-center">
-          <div>
-            <h1>Selamat Datang Di<br /> Show Room Raissa</h1>
-            <p class="mt-3">Showroom Raissa menyedikan mobil mewah dengan harga terjangkau dan kuliatas terjamin </p>
-            <a href="<?php echo "./pages/Add-Raissa.php";?>" class="btn btn-primary">My Car</a>
-            <div class="d-flex align-items-center gap-5 mt-5">
-              <img src="<?php echo "asset/images/logo-ead.png" ?>" alt="logoead" style="width:100px;">
-              <p style="margin-top: 20px; font-size:14px;">Raissa_1202204265</p>
+                                $mysql = "SELECT * FROM user_raissa WHERE email = '$email'";
+                                $rslt = mysqli_query($koneksi, $mysql);
+                                $row = mysqli_fetch_assoc($rslt);
+
+                                echo $row["nama"];
+                            ?>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="pages/Profil-Raissa.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="./config/logout.php">Logout</a></li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-dark" style="margin-right: 10px;" href="pages/Add-Raissa.php">Add Car</a>
+                    <?php else:?>
+                        <a class="btn btn-light" href="pages/Login-Raissa.php">Login</a>
+                    <?php endif;?>
+                </form>
             </div>
-          </div>
-          <img src="<?php echo "asset/images/audi.png" ?>" alt="mobil">
         </div>
-      </div>
-    </section>
-    <!-- Jumbotron End -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="row justify-content-md-center row align-items-center" style="height: 85vh;">
+                <div class="col-md-5">
+          
+                    <h1>Selamat Datang Di<br /> Show Room Raissa</h1>
+            <p class="mt-3">Showroom Raissa menyedikan mobil mewah dengan harga terjangkau dan kuliatas terjamin </p>
+                    <?php if(isset($_SESSION['email']) || isset($_COOKIE['email'])):?>
+                        <a class="btn btn-<?php echo isset($_COOKIE['bg-nav'])? $_COOKIE['bg-nav'] : 'primary';?>" href="pages/List-Raissa.php" role="button">My Car</a>
+                    <?php endif;?>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <img src="./asset/images/logo-ead.png" class="card-img-top">
+                        </div>
+                        <div class="col-md-4">
+                            Raissa_1202204265
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <img src="./asset/images/porsche.jpg" class="card-img-top rounded">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+</script>
 
-  </html>
+</html>
