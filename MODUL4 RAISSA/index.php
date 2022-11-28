@@ -1,3 +1,4 @@
 <?php
-
-require './pages/home1_Raissa.php';
+require 'config/koneksi.php';
+require 'pages/Home-Raissa.php';
+?>
