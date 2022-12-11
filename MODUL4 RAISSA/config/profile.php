@@ -10,7 +10,7 @@
     setcookie("bg-nav", $_POST["bg-nav"], time() + 3600, "/");
 
     if($password == $repassword){
-        $mysql = "UPDATE user_putri SET nama = '$nama', `password` = '$password', no_hp = '$no_hp' WHERE email = '$email'";
+        $mysql = "UPDATE user_raissa SET nama = '$nama', `password` = '$password', no_hp = '$no_hp' WHERE email = '$email'";
         if (mysqli_query($koneksi, $mysql)) {
             header("location: ../pages/Profil-Raissa.php");
         } else {

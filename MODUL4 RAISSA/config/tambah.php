@@ -1,19 +1,18 @@
 <?php
 require './koneksi.php';
 
-$cname = $_POST['nama'];
-$owner = $_POST['pemilik'];
-$carBrand = $_POST['merk'];
-$tanggalbeli = $_POST['tanggalbeli'];
-$desc = $_POST['desc'];
-$status = $_POST['status'];
-
-$carPhoto = $_FILES['gambar']['name'];
+$nama_mobil = $_POST['nama_mobil'];
+$pemilik_mobil = $_POST['pemilik_mobil'];
+$merk_mobil = $_POST['merk_mobil'];
+$tanggal_beli = $_POST['tanggal_beli'];
+$deskripsi = $_POST['deskripsi'];
+$status_pembayaran = $_POST['status_pembayaran'];
+$foto_mobil = $_FILES['foto_mobil']['name'];
 
 $target = "../asset/images/";
 
-if (move_uploaded_file($_FILES['gambar']['tmp_name'], $target . $carPhoto)) {
-  $sql = "INSERT INTO showroom_raissa_table (nama_mobil, pemilik_mobil, merk_mobil, tanggal_beli, deskripsi, foto_mobil, status_pembayaran) VALUES ('$cname', '$owner', '$carBrand', '$tanggalbeli', '$desc', '$carPhoto', '$status')";
+if (move_uploaded_file($_FILES['foto_mobil']['tmp_name'], $target . $foto_mobil)) {
+  $sql = "INSERT INTO showroom_raissa_table (nama_mobil, pemilik_mobil, merk_mobil, tanggal_beli, deskripsi, foto_mobil, status_pembayaran) VALUES ('$nama_mobil', '$pemilik_mobil', '$merk_mobil', '$tanggal_beli', '$deskripsi', '$foto_mobil', '$status_pembayaran')";
   if (mysqli_query($koneksi, $sql)) {
     header("location: ../pages/List-Raissa.php");
   } else {

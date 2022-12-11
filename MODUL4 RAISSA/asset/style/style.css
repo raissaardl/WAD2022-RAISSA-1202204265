@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rubik+Distressed&display=swap");
 
 body {
-  font-family: "Poppins", 'Times New Roman', Times, serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .navbar a {
-  color: #914747;
+  color: #e0e0e0;
   font-weight: 600;
 }
 
 .navbar a:hover {
-  color: rgb(144, 102, 102);
+  color: #fff;
 }
 
 /* Jumbotron */
@@ -44,7 +44,7 @@ body {
   gap: 10px;
   width: 137px;
   height: 51px;
-  background: rgb(201, 183, 153);
+  background: orange;
   border-radius: 5px;
   border: none;
   color: white;
@@ -72,7 +72,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #6c5858;
+  color: #757575;
 }
 
 #form form {

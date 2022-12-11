@@ -10,7 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Raissa_1202204265</title>
-    <link rel="stylesheet" href="./asset/style/BOOTSTRAP.css">
+    <link rel="stylesheet" href="./asset/style/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./asset/images/car.ico" />
     <style>
         body {
             font-family: "Trebuchet MS";
@@ -52,7 +53,7 @@
                                 <li><a class="dropdown-item" href="./config/logout.php">Logout</a></li>
                             </ul>
                         </div>
-                        <a class="btn btn-dark" style="margin-right: 10px;" href="pages/Add-Raissa.php">Add Car</a>
+                        <a class="btn btn-light" style="margin-right: 10px;" href="pages/Add-Raissa.php">Add Car</a>
                     <?php else:?>
                         <a class="btn btn-light" href="pages/Login-Raissa.php">Login</a>
                     <?php endif;?>
@@ -64,9 +65,10 @@
         <div class="container">
             <div class="row justify-content-md-center row align-items-center" style="height: 85vh;">
                 <div class="col-md-5">
-          
-                    <h1>Selamat Datang Di<br /> Show Room Raissa</h1>
-            <p class="mt-3">Showroom Raissa menyedikan mobil mewah dengan harga terjangkau dan kuliatas terjamin </p>
+                    <p>
+                        <h2>Welcome to Show Room Raissa</h2>
+                        kami menyediakan berbagai macam mobil yang berkualitas dengan harga terjangkau
+                    </p>
                     <?php if(isset($_SESSION['email']) || isset($_COOKIE['email'])):?>
                         <a class="btn btn-<?php echo isset($_COOKIE['bg-nav'])? $_COOKIE['bg-nav'] : 'primary';?>" href="pages/List-Raissa.php" role="button">My Car</a>
                     <?php endif;?>
@@ -80,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <img src="./asset/images/porsche.jpg" class="card-img-top rounded">
+                    <img src="./asset/images/mercy.png" class="card-img-top rounded">
                 </div>
             </div>
         </div>

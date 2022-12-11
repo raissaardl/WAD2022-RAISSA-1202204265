@@ -1,4 +1,4 @@
-  <?php
+<?php
   require './koneksi.php';
 
   $id = $_GET['id'];

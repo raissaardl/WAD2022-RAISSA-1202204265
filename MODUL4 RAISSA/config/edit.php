@@ -15,7 +15,7 @@ $target = "../asset/images/";
 if (move_uploaded_file($_FILES['foto_mobil']['tmp_name'], $target . $foto_mobil)) {
   $sql = "UPDATE showroom_raissa_table SET nama_mobil = '$nama_mobil', pemilik_mobil = '$nama_pemilik', merk_mobil = '$merk_mobil', tanggal_beli = '$tanggal_beli', deskripsi = '$deskripsi', foto_mobil = '$foto_mobil', status_pembayaran = '$status_pembayaran' WHERE id_mobil = $id_mobil";
   if (mysqli_query($koneksi, $sql)) {
-    header("location: ../pages/List-Raissa.php");
+    header("location: ../pages/List-raissa.php");
   } else {
     echo "Error";
   }

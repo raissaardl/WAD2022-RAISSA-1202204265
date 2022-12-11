@@ -32,7 +32,7 @@
                     </li>
                     <?php if(isset($_SESSION['email']) || isset($_COOKIE['email'])):?>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="List-Raissa.php">My Car</a>
+                        <a class="nav-link" aria-current="page" href="List-Raissa.php">MyCar</a>
                     </li>
                     <?php endif;?>
                 </ul>
