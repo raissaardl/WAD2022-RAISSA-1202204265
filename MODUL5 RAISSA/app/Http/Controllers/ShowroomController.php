@@ -58,7 +58,7 @@ class ShowroomController extends Controller
      */
     public function carDetail(Request $request, $id)
     {
-        $showroom = Showrooms::find($id);
+        $showrooms = Showrooms::find($id);
         // dd($car);
 
         return view('detail', compact('showroom'));
