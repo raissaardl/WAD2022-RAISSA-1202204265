@@ -29,7 +29,7 @@
     </nav>
         <div>
             <br>
-            <h1 align="Center">Selamat Datang di Penyewaan Barang Elektornik</h1>
+            <h1 align="Center">Selamat Datang di Penyewaan Barang Elektronik</h1>
             <br>
             <p class="lead" align="center">
                 Temukan Harga Termurah
